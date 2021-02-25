@@ -27,7 +27,8 @@ Launch the server in the cmd with : "php artisan serve", you can see the result 
 2. Create the Model from the database : 
 	2.1 create the model "php artisan make:model Table_name" (the model will be created in app/Models/yourModel)
 	2.2 specify the table it refers to : "protected $table = 'table_name';"
-	2.3 if there are no "created at" column in your DB add "public $timestamps = false;"
+	2.3 specify the fields that can be filled with POST requests "protected $fillable = ['column_name','column_name2'...];"
+	2.4 if there are no "created at" column in your DB add "public $timestamps = false;"
 
 3. Specify inside the controller's index function the Model it refers to : 
 	3.1 import the Model : "use App\Models\your_Model;"

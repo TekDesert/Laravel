@@ -11,5 +11,7 @@ class Country extends Model
 
     protected $table = 'country'; #definy reference table
 
+    protected $fillable = ['name']; #Column's) that can be filled with data in POSTS
+
     public $timestamps = false; #There is no Timestamp column in this table
 }

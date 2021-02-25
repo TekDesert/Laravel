@@ -18,4 +18,13 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
+//CRUD
+
 Route::get('/db', [CountryController::class, 'index']);
+
+Route::post('/db', [CountryController::class, 'store']);
+
+Route::put('/db/{id}', [CountryController::class, 'update']);
+
+Route::delete('/db/{id}', [CountryController::class, 'destroy']);
+

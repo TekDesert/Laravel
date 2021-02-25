@@ -29,7 +29,10 @@ class CountryController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        //create a country
+        #return Country::create($request->all());
+
+        return Country::create($request->all());
     }
 
     /**
@@ -40,7 +43,8 @@ class CountryController extends Controller
      */
     public function show($id)
     {
-        //
+        //show a country
+        return Country::find($id);
     }
 
     /**
@@ -52,7 +56,10 @@ class CountryController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        //update a country
+        $country = Country::find($id);
+        $country->update($request->all());
+        return $country;
     }
 
     /**
@@ -63,6 +70,16 @@ class CountryController extends Controller
      */
     public function destroy($id)
     {
-        //
+        //remove a country
+        #$country = Country::find($id); // File::find($id)
+
+        #return $country::delete();
+
+        $country = Country::findOrFail($id);
+        if($country)
+           $country->delete(); 
+        else
+            return response()->json(error);
+        return response()->json(null); 
     }
 }
